@@ -39,6 +39,7 @@ function gulpRequireTasks (options) {
 
     gulp.task(
       taskNameFromPath(modulePath),
+      module.help,
       module.dep,
       module.nativeTask || taskFunction
     );
@@ -105,6 +106,7 @@ function normalizeModule (module) {
   if ('function' === typeof module) {
     return {
       fn: module,
+      help: 'No help defined',
       dep: []
     };
   } else {
